@@ -33,8 +33,8 @@ const io = new Server(server, {
 // Parse JSON requests
 app.use(express.json());
 
-app.get('/test', async (req, res) => {
-  res.status(200).send('server running');
+app.get('/', async (req, res) => {
+  res.status(200).send('Crypto Clash Server is Running ...');
   res.end();
 });
 
@@ -72,7 +72,7 @@ io.on("connection", (socket) => {
   });
 });
 
-if(process.env.NODE_ENV == "production"){
+if (process.env.NODE_ENV == "production") {
 
   app.use(express.static(path.join(__dirname, '/client/build')))
 
