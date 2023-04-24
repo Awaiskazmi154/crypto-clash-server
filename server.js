@@ -1,5 +1,5 @@
+// import path from 'path';
 import dotenv from 'dotenv';
-import path from 'path';
 import express from 'express';
 import http from 'http';
 import cors from "cors";
@@ -12,7 +12,7 @@ import roomRoutes from './routes/roomRoutes.js';
 import wordRoutes from './routes/wordRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
 dotenv.config()
 connectDB()
 
@@ -49,7 +49,6 @@ app.use('/api/rooms', roomRoutes);
 // API endpoints for chat management
 app.use('/api/chats', chatRoutes);
 
-
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
@@ -72,11 +71,8 @@ io.on("connection", (socket) => {
 });
 
 // if (process.env.NODE_ENV == "production") {
-
 //   app.use(express.static(path.join(__dirname, '/client/build')))
-
 //   app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
-
 // }
 
 // Start the server
