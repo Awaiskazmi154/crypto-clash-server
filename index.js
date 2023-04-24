@@ -22,8 +22,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://crypto-clash-client.vercel.app",
-    methods: ["GET", "POST"],
+    origin: "*",
   },
 });
 
